@@ -11,4 +11,5 @@ public class RiderMatchingServiceImpl implements RiderMatchingService {
     public String findRider() {
         return "find rider";
     }
+
 }
