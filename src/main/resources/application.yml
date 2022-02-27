@@ -1,2 +1,28 @@
 server:
-  port: 20000
+  port: 20400
+grpc:
+  server:
+    port: 20401
+---
+
+# -- Eureka client
+eureka:
+  client:
+    fetch-registry: true # 유레카 클라이언트 활성화
+    register-with-eureka: true # 유레카 클라이언트 활성화
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://127.0.0.1:10000/eureka/}
+  instance:
+    hostname: localhost
+---
+
+spring:
+  application:
+    name: riderService
+  datasource:
+    url: jdbc:mysql://localhost:3306/rider?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: aaaa1111
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+

@@ -10,13 +10,25 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://repo.spring.io/milestone'
+    }
+}
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2021.0.0-M1'
+    }
 }
 
 
 dependencies {
+    implementation project(':msaGrpcProject')
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1'
+    implementation("net.devh:grpc-client-spring-boot-starter:2.11.0.RELEASE")
+    implementation("net.devh:grpc-server-spring-boot-starter:2.11.0.RELEASE")
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'mysql:mysql-connector-java'

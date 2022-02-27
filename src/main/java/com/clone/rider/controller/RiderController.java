@@ -28,4 +28,9 @@ public class RiderController {
         //배달완료 상태
         return "pickupStateChange";
     }
+
+    @PostMapping("/selectOrder")
+    private String selectOrder() {
+        return "selectOrder";
+    }
 }
